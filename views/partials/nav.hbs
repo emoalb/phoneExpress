@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/search">Search</a>
+        </li>
+        {{#if userName}}
+            <li class="nav-item">
+                <a class="nav-link" href="/create/new">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Hello {{userName}}!</a>
+            </li>
+        {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/user/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Hello Guest!</a>
+            </li>
+        {{/if}}
+    </ul>
+</nav>
+{{#if message}}
+    <div class="alert alert-primary" role="alert" style="
+       transition: opacity 2s ease-in;
+       animation: fadeOut 1s forwards;
+    animation-delay: 2s;
+">
+        {{message}}
+    </div>
+    <style>
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+{{else}}
+    <div class="alert alert-light" role="alert">
+        <br/>
+    </div>
+{{/if}}

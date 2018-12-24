@@ -1,0 +1,12 @@
+<table class="table">
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Number</th>
+    </tr>
+{{#each phones}}
+    <tr><th scope="col">{{firstName}}</th><th scope="col">{{address}}</th><th scope="col">{{phoneNum}}</th>
+        {{#if isCreator}}<th scope="col"><a href="/edit/{{id}}">edit </a></th><th scope="col"><a href="/delete/{{id}}">delete</a></th>
+        {{/if}}</tr>
+{{/each}}
+</table>
