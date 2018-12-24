@@ -20,7 +20,7 @@ app.engine('hbs', hbs({
 
     helpers: {
         title: title,
-        cname: '',
+        cname: 'Emkosoft',
         year: '2018'
     },
     partialsDir: __dirname + '/views/partials/'
@@ -48,7 +48,7 @@ app.get('/user/logout', controller.logout.get);
 
 
 app.use(express.static(path.join(rootFolder, 'node_modules/bootstrap/dist')));
-
+app.use(express.static(path.join(rootFolder, 'public')));
 const port = 5000;
 database();
 const server = http.createServer(app);

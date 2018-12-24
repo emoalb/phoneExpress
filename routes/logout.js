@@ -1,8 +1,9 @@
 module.exports = {
     get: (req, res) => {
-        req.session.destroy(function () {
+        req.session.user='';
+        req.session.message='Logout successful!';
             res.redirect('/');
-        });
+
 
 
     }

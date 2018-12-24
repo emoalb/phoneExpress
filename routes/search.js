@@ -10,16 +10,20 @@ module.exports = {
         const form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files) => {
             const firstName = fields.firstName;
-            phoneBookSchema.find({firstName}).then((phones) => {
-                if(phones.length>0)
-                {
-                    return res.render('search', {phones: phones, hasSubmit: true, userName: req.session.user});
-                }else{
-                    req.session.message = "No matches in database found!";
-                    return res.redirect('/search');
-                }
+            if(firstName) {
+                phoneBookSchema.find({firstName: {$regex: ".*" + firstName + ".*"}}).then((phones) => {
+                    if (phones.length > 0) {
+                        return res.render('search', {phones: phones, hasSubmit: true, userName: req.session.user});
+                    } else {
+                        req.session.message = "No matches in database found!";
+                        return res.redirect('/search');
+                    }
 
-            });
+                });
+            }else{
+                req.session.message="Pls enter something!"
+                return res.redirect('/search');
+            }
         })
     }
 };

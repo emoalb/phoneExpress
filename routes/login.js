@@ -3,9 +3,14 @@ const formidable = require('formidable');
 const encryption = require('../utilities/encryption');
 module.exports = {
     get: (req, res) => {
-        const message =req.session.message;
-        req.session.message = '';
-        res.render('login', {cname: 'Emkosoft Corp', message });
+        if(req.session.user||!req.session.user===''){
+            req.session.message = 'Logout first in order to log in...';
+            res.redirect('/');
+        }else {
+            const message = req.session.message;
+            req.session.message = '';
+            return res.render('login', {message});
+        }
 
     },
     post: (req, res) => {
