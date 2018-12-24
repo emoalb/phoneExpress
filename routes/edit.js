@@ -2,6 +2,10 @@ const phoneBookSchema = require('../models/phoneBookSchema');
 const formidable = require('formidable');
 module.exports = {
     get: (req, res) => {
+        if(!req.session.user){
+            req.session.message='Please login first to edit!';
+            return res.redirect('/user/login');
+        }
         let id = req.params.id;
         phoneBookSchema.findById(id).then((phone) => {
             return res.render('edit', {
