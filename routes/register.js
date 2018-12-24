@@ -4,14 +4,14 @@ const encryption = require('../utilities/encryption');
 module.exports = {
     get: (req, res) => {
 
-            if(req.session.user||req.session.user===''){
-                req.session.message = 'Logout first in order to register new user...';
-                res.redirect('/');
-            }else {
-                const message = req.session.message;
-                req.session.message = '';
-              return  res.render('register', {message: message});
-            }
+        if (req.session.user || req.session.user === '') {
+            req.session.message = 'Logout first in order to register new user...';
+            res.redirect('/');
+        } else {
+            const message = req.session.message;
+            req.session.message = '';
+            return res.render('register', {message: message});
+        }
     },
     post: (req, res) => {
         const form = new formidable.IncomingForm();

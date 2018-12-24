@@ -20,7 +20,7 @@ app.engine('hbs', hbs({
 
     helpers: {
         title: title,
-        cname: 'Emkosoft',
+        cname: 'Emkosoft Corporation',
         year: '2018'
     },
     partialsDir: __dirname + '/views/partials/'
