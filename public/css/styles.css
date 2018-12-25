@@ -1,19 +1,46 @@
 @import "https://use.fontawesome.com/releases/v5.6.3/css/all.css";
+@media all and (max-width:991px){
+
+    .top{
+        display: flex;
+        flex-direction: row;
+
+    }
+    header{
+        width:20%;
+    }
+    main
+    {
+        width: 80%
+    }
+}
+h5 {
+    margin: 0;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 h3 {
     text-align: center
 }
-
+form > p {
+   text-align: center;
+}
 header > .alert {
     animation: fadeOut 6s linear forwards;
 }
 
 footer > .alert {
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-bottom: 0
+    margin: 0;
+
 }
 
 @keyframes fadeOut {

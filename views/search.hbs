@@ -3,17 +3,19 @@
         <label for="exampleInputEmail1">Search by First Name</label>
         <input type="text" class="form-control" name="firstName">
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+ <p><button type="submit" class="btn btn-primary">Search</button></p>
 </form>
 <table class="table">
     {{#if hasSubmit}}
+        <h3>Search Results for {{result}}</h3>
+
     <tr>
         <th scope="col">First Name</th>
         <th scope="col">Address</th>
         <th scope="col">Number</th>
     </tr>
     {{#each phones}}
-        <tr><th scope="col">{{firstName}}</th><th scope="col">{{address}}</th><th scope="col">{{phoneNum}}</th>{{#if userName}}<th scope="col"><a href="/edit/{{id}}">edit </a></th><th scope="col"><a href="/delete/{{id}}">delete</a></th>{{/if}}</tr>
+     {{>phone-contact}}
     {{/each}}
     {{/if}}
 </table>

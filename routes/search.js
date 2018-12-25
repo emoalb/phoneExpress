@@ -13,11 +13,10 @@ module.exports = {
             if(firstName) {
                 phoneBookSchema.find({firstName: {$regex: ".*" + firstName + ".*"}}).then((phones) => {
                     if (phones.length > 0) {
-                        return res.render('search', {phones: phones, hasSubmit: true, userName: req.session.user});
+                        return res.render('search', {phones: phones, hasSubmit: true, userName: req.session.user,result:firstName});
                     } else {
                         req.session.message = "No matches in database found!";
-                        return res.redirect('/search');
-                    }
+                        return res.redirect('/search');                    }
 
                 });
             }else{

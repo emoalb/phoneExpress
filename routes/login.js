@@ -16,7 +16,7 @@ module.exports = {
     post: (req, res) => {
         const form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files) => {
-            const username = fields.username;
+            const username = fields.username.toLowerCase();
             const password = fields.password;
             User.findOne({username: username}).then(user => {
                 if (user !== null) {

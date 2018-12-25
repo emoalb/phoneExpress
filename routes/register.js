@@ -4,7 +4,7 @@ const encryption = require('../utilities/encryption');
 module.exports = {
     get: (req, res) => {
 
-        if (req.session.user || req.session.user === '') {
+        if (req.session.user || !req.session.user === '') {
             req.session.message = 'Logout first in order to register new user...';
             res.redirect('/');
         } else {
@@ -16,7 +16,7 @@ module.exports = {
     post: (req, res) => {
         const form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files) => {
-            const username = fields.username;
+            const username = fields.username.toLowerCase();
             const email = fields.email;
             let password = fields.password;
             const repeatPass = fields.repeatPass;
