@@ -1,1 +1,8 @@
-<tr><th scope="col">{{firstName}}</th><th scope="col">{{address}}</th><th scope="col">{{phoneNum}}</th>{{#if userName}}<th scope="col"><a href="/edit/{{id}}">edit </a></th><th scope="col"><a href="/delete/{{id}}">delete</a></th>{{/if}}</tr>
+<tr>
+    <th scope="col">{{firstName}}</th>
+    <th scope="col">{{address}}</th>
+    <th scope="col">{{phoneNum}}</th>
+    {{#if userName}}
+        <th scope="col"><a href="/edit/{{id}}">edit </a></th>
+        <th scope="col"><a href="/delete/{{id}}">delete</a></th>
+    {{/if}}</tr>
